@@ -16,11 +16,15 @@ cache:
   directories:
     - node_modules
 
-script:
-  - npm test
-  - mkdir build_native
-  - cd build_native
-  - cmake ..
-  - make
-  - ./unit_tests
-  - uptime && vmstat -S M
+matrix:
+  include:
+    - script:
+      - npm test
+      - uptime && vmstat -S M
+    - script:
+      - mkdir build_native
+      - cd build_native
+      - cmake ..
+      - make
+      - ./unit_tests
+      - uptime && vmstat -S M
