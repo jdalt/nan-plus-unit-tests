@@ -1,0 +1,17 @@
+language: node_js
+
+sudo: false
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - npm install
+
+script:
+  - npm test
+  - uptime && vmstat -S M
