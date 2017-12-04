@@ -6,5 +6,5 @@ TEST(example, add)
     double res;
     MagicBox mb;
     res = mb.smash(5.0, 3);
-    ASSERT_NEAR(res, 18.0, 1.0e-11);
+    ASSERT_NEAR(res, 15.0, 1.0e-11);
 }
