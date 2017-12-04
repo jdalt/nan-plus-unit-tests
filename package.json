@@ -1,7 +1,7 @@
 {
-  "name": "function_arguments",
+  "name": "nan-plus-unit-tests",
   "version": "0.0.0",
-  "description": "Node.js Addons Example #2",
+  "description": "Node.js C++ addon with tests in javascript and c++",
   "main": "addon.js",
   "private": true,
   "dependencies": {
@@ -9,7 +9,10 @@
     "nan": "^2.0.0"
   },
   "scripts": {
-    "test": "node addon.js"
+    "test": "node_modules/mocha/bin/mocha"
   },
-  "gypfile": true
+  "gypfile": true,
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
 }
