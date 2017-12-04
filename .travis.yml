@@ -18,10 +18,12 @@ cache:
 
 matrix:
   include:
-    - script:
+    - env: TEST_TYPE=node
+      script:
       - npm test
       - uptime && vmstat -S M
-    - script:
+    - env: TEST_TYPE=native
+      script:
       - mkdir build_native
       - cd build_native
       - cmake ..
