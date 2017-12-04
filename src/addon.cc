@@ -1,4 +1,5 @@
 #include <nan.h>
+#include "magicBox.h"
 
 void Add(const Nan::FunctionCallbackInfo<v8::Value>& info) {
 
@@ -13,14 +14,17 @@ void Add(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   }
 
   double arg0 = info[0]->NumberValue();
-  double arg1 = info[1]->NumberValue();
-  v8::Local<v8::Number> num = Nan::New(arg0 + arg1);
+  int arg1 = info[1]->NumberValue();
+
+  MagicBox mb;
+  double result = mb.smash(arg0, arg1);
+  v8::Local<v8::Number> num = Nan::New(result);
 
   info.GetReturnValue().Set(num);
 }
 
 void Init(v8::Local<v8::Object> exports) {
-  exports->Set(Nan::New("add").ToLocalChecked(),
+  exports->Set(Nan::New("smash").ToLocalChecked(),
                Nan::New<v8::FunctionTemplate>(Add)->GetFunction());
 }
 
