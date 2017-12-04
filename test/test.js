@@ -1,6 +1,6 @@
 var assert = require('assert')
 
-var lib = require('./addon.js')
+var lib = require('./../addon.js')
 
 describe('lib.cppAdder()', function() {
   it('should return 2 when passed 1,1', function() {
